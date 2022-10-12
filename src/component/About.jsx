@@ -1,6 +1,9 @@
 import profil from "../assets/profil.jpg";
 
 export default function About() {
+  const name = "Hello, I am Muhammad Randy";
+  const description =
+    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Solutaodit, necessitatibus hic a voluptas laborum dicta ipsam quasi voluptatibus, quam cupiditate nisi atque eligendi molestias dolor eum fuga cum eius.";
   return (
     <section id="About">
       <div className="bg-secondary text-primary min-h-screen flex items-center justify-center">
@@ -10,13 +13,8 @@ export default function About() {
             alt="profil"
             className="h-[220px] mx-auto rounded-full"
           />
-          <h1 className="font-medium text-4xl">Hallo, I am Muhammad Randy</h1>
-          <p className="text-navbar text-lg">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta
-            odit, necessitatibus hic a voluptas laborum dicta ipsam quasi
-            voluptatibus, quam cupiditate nisi atque eligendi molestias dolor
-            eum fuga cum eius.
-          </p>
+          <h1 className="font-medium text-4xl">{name}</h1>
+          <p className="text-navbar text-lg">{description}</p>
         </div>
       </div>
     </section>
