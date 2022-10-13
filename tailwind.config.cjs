@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -9,7 +10,7 @@ module.exports = {
         secondary: "#06283D",
       },
       fontFamily: {
-        burtons: "burtons",
+        libre: ['"Playfair Display"', "serif"],
       },
     },
   },
