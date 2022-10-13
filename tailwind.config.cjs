@@ -8,6 +8,9 @@ module.exports = {
         primary: "#FFF8EA",
         secondary: "#06283D",
       },
+      fontFamily: {
+        burtons: "burtons",
+      },
     },
   },
   plugins: [],
