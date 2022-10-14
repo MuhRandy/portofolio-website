@@ -14,5 +14,8 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // Or with a custom prefix:
+    require("@headlessui/tailwindcss")({ prefix: "ui" }),
+  ],
 };

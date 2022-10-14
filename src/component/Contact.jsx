@@ -14,7 +14,7 @@ export default function Contact() {
   return (
     <section
       id="Contact"
-      className="bg-white flex items-center justify-center h-screen"
+      className="bg-white flex items-center justify-center h-[90vh]"
     >
       <div>
         <h1 className="text-5xl font-libre font-medium text-black text-center mb-[70px]">
