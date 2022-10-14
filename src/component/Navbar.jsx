@@ -1,19 +1,29 @@
+import { Tab } from "@headlessui/react";
+import { HiOutlineCode } from "react-icons/hi";
+import MenuButton from "./MenuButton";
+
 export default function Navbar() {
   const nav = ["About", "Work", "Contact"];
+  const style = {
+    tab: "text-center px-2 ui-not-selected:bg-white ui-not-selected:text-black ui-not-selected:opacity-50",
+    tablist:
+      "flex justify-between border-b-2 bg-white py-2 text-lg font-medium",
+    brand: "text-xl md:text-2xl lg:text-3xl",
+    sticky: "sticky top-0 left-0 right-0",
+  };
   return (
-    <nav className="sticky top-0 left-0 right-0 border-b-2 bg-white">
-      <div className="flex justify-between text-secondary font-medium">
-        <h1 className="flex items-center text-3xl font-libre">
-          Randy Portofolio
+    <div className={style.sticky}>
+      <Tab.List className={style.tablist}>
+        <h1 className={style.brand}>
+          <HiOutlineCode />
         </h1>
-        <div className="flex justify-center gap-5 pr-3 text-xl py-2">
-          {nav.map((i, key) => (
-            <a key={key} href={`#${i}`}>
-              {i}
-            </a>
-          ))}
+        <div>
+          <Tab className={`${style.tab}`}>Home</Tab>
+          <Tab className={style.tab}>About</Tab>
+          <Tab className={style.tab}>Project</Tab>
+          <Tab className={style.tab}>Contact</Tab>
         </div>
-      </div>
-    </nav>
+      </Tab.List>
+    </div>
   );
 }

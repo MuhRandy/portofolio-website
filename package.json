@@ -11,8 +11,10 @@
   "dependencies": {
     "@headlessui/react": "^1.7.3",
     "@headlessui/tailwindcss": "^0.1.1",
+    "@heroicons/react": "^2.0.12",
     "@react-icons/all-files": "^4.1.0",
     "@tabler/icons": "^1.103.0",
+    "clsx": "^1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0"
