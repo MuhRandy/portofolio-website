@@ -1,12 +1,14 @@
 function Profil({ children }) {
   return (
-    <div className="flex items-center justify-center gap-5">{children}</div>
+    <div className="flex flex-col md:flex-row items-center justify-center gap-5">
+      {children}
+    </div>
   );
 }
 
 function Image({ src }) {
   return (
-    <div className="h-60 w-60 mx-auto rounded-[20px] overflow-hidden border-2">
+    <div className=" w-40 h-40 md:h-60 md:w-60 mx-auto rounded-[20px] overflow-hidden border-2">
       <img src={src} alt="profil" />
     </div>
   );
@@ -14,9 +16,13 @@ function Image({ src }) {
 
 function Description({ children }) {
   return (
-    <div className="mt-5 w-[550px]">
-      <h1 className="text-4xl font-medium font-libre text-center">About Me</h1>
-      <p className="text-2xl mt-[40px] font-serif text-justify">{children}</p>
+    <div className="md:mt-5 w-[340px] md:w-[550px]">
+      <h1 className="text-2xl md:text-4xl font-medium font-libre text-center">
+        About Me
+      </h1>
+      <p className="text-lg md:text-2xl md:mt-[40px] font-serif text-center md:text-justify">
+        {children}
+      </p>
     </div>
   );
 }
