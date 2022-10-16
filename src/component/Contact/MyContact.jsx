@@ -16,7 +16,10 @@ export default function MyContact({ children }) {
 
 function List({ href, children }) {
   return (
-    <a href={href} className="flex items-center justify-center gap-1">
+    <a
+      href={href}
+      className="flex items-center justify-center gap-1 hover:scale-110"
+    >
       {children}
     </a>
   );

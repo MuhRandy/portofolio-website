@@ -13,7 +13,7 @@ function Skill({ children }) {
 
 function List({ children }) {
   return (
-    <div className=" border-[1px] md:border-2 border-black rounded-2xl px-2 flex items-center gap-2">
+    <div className=" border-[1px] md:border-2 border-black rounded-2xl px-2 flex items-center gap-2 hover:scale-110 cursor-pointer">
       {children}
     </div>
   );

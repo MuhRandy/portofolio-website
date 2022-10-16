@@ -8,7 +8,7 @@ function Profil({ children }) {
 
 function Image({ src }) {
   return (
-    <div className=" w-40 h-40 md:h-60 md:w-60 mx-auto rounded-[20px] overflow-hidden border-2">
+    <div className=" w-40 h-40 md:h-60 md:w-60 mx-auto rounded-[20px] overflow-hidden border-2 hover:scale-110">
       <img src={src} alt="profil" />
     </div>
   );

@@ -12,7 +12,7 @@ export default function Navbar() {
       >
         <h1
           className={
-            "text-xl md:text-2xl lg:text-3xl font-medium font-archivo text-secondary"
+            "text-xl md:text-2xl lg:text-3xl font-medium font-fondamento text-secondary"
           }
         >
           {"<R/>"}
@@ -21,7 +21,7 @@ export default function Navbar() {
           {nav.map((i, key) => (
             <Tab
               className={
-                "text-center px-2 ui-not-selected:bg-white ui-not-selected:text-black ui-not-selected:opacity-50"
+                "text-center px-2 ui-not-selected:bg-white ui-not-selected:opacity-50 hover:scale-110 hover:text-slate-600"
               }
               key={key}
             >

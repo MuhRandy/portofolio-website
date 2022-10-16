@@ -11,7 +11,7 @@ module.exports = {
       },
       fontFamily: {
         libre: ['"Playfair Display"', "serif"],
-        archivo: ['"Archivo Black"', "sans-serif"],
+        fondamento: ['"Fondamento"', "cursive"],
       },
     },
   },
