@@ -1,4 +1,7 @@
 # portofolio-website<br>
 a simple portofolio with vite + react and tailwind<br>
-*my task<br>
-*<del>make web responsive</del>
+<ul>
+  My Task
+    <li><del>make web responsive</del><br></li>
+    <li>animation</li>
+</ul>
