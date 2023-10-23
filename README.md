@@ -9,3 +9,8 @@ a simple portofolio with vite + react and tailwind
 # Reminder
 
 - [How to Deploy to Github Pages](https://medium.com/@badreddine.boudaoud21/create-a-react-app-with-vite-and-deploy-it-on-github-48b82e19f821)
+
+# This Web Using
+
+- [Tabler Icons]()
+- [Swiper]()

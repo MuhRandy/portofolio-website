@@ -1,3 +1,10 @@
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { register } from "swiper/element/bundle";
+import { useEffect, useRef } from "react";
+
+register();
+
 export default function Card() {
   const project = [
     {
@@ -18,15 +25,20 @@ export default function Card() {
     },
   ];
   return (
-    <div className="flex justify-center gap-5 py-5">
+    <swiper-container
+      space-between={"30"}
+      slides-per-view={"2.5"}
+      grab-cursor={true}
+      className="w-9"
+    >
       {project.map((i, index) => (
-        <div className="w-[300px] overflow-hidden">
+        <swiper-slide key={index}>
           <img src={i.img} alt={i.img} className="shadow-black shadow-sm" />
           <h1 className="text-center text-2xl font-medium text-secondary py-4 underline">
             {i.name}
           </h1>
-        </div>
+        </swiper-slide>
       ))}
-    </div>
+    </swiper-container>
   );
 }
