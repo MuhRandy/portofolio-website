@@ -10,7 +10,8 @@ module.exports = {
         secondary: "#06283D",
       },
       fontFamily: {
-        libre: ['"Playfair Display"', "serif"],
+        libre: ["Playfair Display", "serif"],
+        inter: ["Inter", "sans-serif"],
       },
     },
   },

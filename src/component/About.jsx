@@ -1,4 +1,6 @@
-import profil from "../assets/profil.png";
+import profil from "../assets/profil.jpg";
+import blob from "../assets/blob.svg";
+import blob2 from "../assets/blob2.svg";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import {
   AiFillTwitterCircle,
@@ -8,21 +10,29 @@ import {
 
 export default function About() {
   return (
-    <section id="About" className="flex items-center justify-center">
-      <div className="flex justify-between items-center mt-[80px] gap-5">
-        {/* <image */}
-        <div className="h-60 w-60 mx-auto rounded-[20px] overflow-hidden border-2">
-          <img src={profil} alt="profil" />
+    <section
+      id="About"
+      className="flex items-center justify-center gap-20 h-[80vh] w-[100vw] overflow-clip font-inter"
+    >
+      <div className="w-[35%] flex flex-col gap-3">
+        <div className="flex flex-col">
+          <span className="text-[59px] font-bold">Muhammad</span>
+          <span className="text-[72px] font-bold mt-[-40px]">Randy</span>
         </div>
-        {/* image/> */}
-        <div className="text-4xl mt-5 w-[550px]">
-          <h1 className=" font-medium font-libre text-center">About Me</h1>
-          <p className="text-2xl mt-[40px] font-serif text-justify">
-            I am Muhammad Randy a passionate front end web developer. I am a
-            beginner in the front end web developer and still worked with a
-            varied web developer framework like tailwind and react js.
-          </p>
+        <div className="text-[23px] mt-[-20px] text-justify w-[80%]">
+          A beginner software engginer from Indonesia who focus on frontend
+          website developer.
         </div>
+        <button className="bg-black text-white w-20 text-xl">Hire me</button>
+      </div>
+      <img
+        src={profil}
+        alt="Muhammad Randy Profil Photo's"
+        className="w-[200px] border-solid border-[#625959] border-[1px] rounded-2xl z-10"
+      />
+      <div className="absolute w-[600px] right-0 bottom-[-325px] z-[0]">
+        <img src={blob} alt="blob" />
+        <img src={blob2} alt="blob2" />
       </div>
     </section>
   );

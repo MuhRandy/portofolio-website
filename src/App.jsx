@@ -9,9 +9,9 @@ import Work from "./component/Work";
 
 function App() {
   return (
-    <main className=" bg-white">
+    <main className="bg-white">
       <Navbar />
-      <Home />
+      {/* <Home /> */}
       <About />
       <Work />
       <Contact />

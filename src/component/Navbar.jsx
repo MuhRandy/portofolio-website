@@ -1,18 +1,25 @@
+import { IconCode } from "@tabler/icons";
+
 export default function Navbar() {
   const nav = ["About", "Work", "Contact"];
   return (
-    <nav className="sticky top-0 left-0 right-0 border-b-2 bg-white">
-      <div className="flex justify-between text-secondary font-medium">
-        <h1 className="flex items-center text-3xl font-libre">
-          Randy Portofolio
-        </h1>
-        <div className="flex justify-center gap-5 pr-3 text-xl py-2">
-          {nav.map((i, key) => (
-            <a key={key} href={`#${i}`}>
-              {i}
-            </a>
-          ))}
-        </div>
+    <nav className="sticky top-0 left-0 right-0 bg-white flex items-center justify-between font-inter z-20">
+      <div className="flex items-center text-2xl font-bold">
+        <IconCode size={"1.875rem"} />
+        <span>Randy Portofolio's</span>
+      </div>
+      <div>
+        <ul className="flex gap-2 text-xl px-10">
+          <a href="#About">
+            <li>Home</li>
+          </a>
+          <a href="#Works">
+            <li>Projects</li>
+          </a>
+          <a href="#Contact">
+            <li>Contact</li>
+          </a>
+        </ul>
       </div>
     </nav>
   );
