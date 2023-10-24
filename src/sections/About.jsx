@@ -23,7 +23,16 @@ export default function About() {
           A beginner software engginer from Indonesia who focus on frontend
           website developer.
         </div>
-        <button className="bg-black text-white w-20 text-xl">Hire me</button>
+        <div className="flex items-center justify-between w-[80%]">
+          <button className="bg-black text-white w-24 h-7 text-xl">
+            Hire me
+          </button>
+          <div className="flex text-4xl gap-2">
+            <AiFillGithub />
+            <AiFillTwitterCircle />
+            <AiFillLinkedin />
+          </div>
+        </div>
       </div>
       <img
         src={profil}
