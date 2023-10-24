@@ -9,38 +9,36 @@ import {
   AiFillTwitterCircle,
   AiOutlineCopyrightCircle,
 } from "react-icons/ai";
+import Input from "../component/Input";
 
 export default function Contact() {
   return (
     <section
       id="Contact"
-      className="bg-white flex items-center justify-center h-screen"
+      className="flex items-center min-h-screen px-40"
     >
-      <div>
-        <h1 className="text-5xl font-libre font-medium text-black text-center mb-[70px]">
-          My Contact
+      <div className="flex justify-between min-w-full">
+        <h1 className="text-[59px] font-bold text-left flex flex-col font-inter">
+          <span>Get in touch</span>
+          <span className="mt-[-30px]">Contact me</span>
         </h1>
-        <div className="flex items-center justify-center pt-5 gap-5 text-3xl font-medium font-serif">
-          <a href="#" className="flex items-center justify-center">
-            <AiFillGithub />
-            Github
-          </a>
-          <a
-            href="#"
-            className="flex items-center justify-center p-3 rounded-full"
-          >
-            <AiFillTwitterCircle />
-            Twitter
-          </a>
-          <a
-            href="#"
-            className="flex items-center justify-center p-3 rounded-full"
-          >
-            <AiFillLinkedin />
-            Linkedin
-          </a>
+          <form className="flex flex-col gap-2 mt-[20px] w-[40%]" /* ref={form}  onSubmit={sendEmail}*/>
+            <Input name={"user_name"} placeholder={"Name"} />
+            <Input
+              type="email"
+              name="user_email"
+              placeholder="Email"
+            />
+            <textarea
+              name="message"
+              className="border border-black p-1"
+              placeholder="Message"
+            ></textarea>
+            <input type="submit" value={"Send"} className="bg-black text-white w-[80px]" />
+            {/* <span>{done && "Thanks for contacting me!"}</span> */}
+          </form>
         </div>
-      </div>
+        
     </section>
   );
 }
