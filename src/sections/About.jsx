@@ -1,7 +1,6 @@
 import profil from "../assets/profil.jpg";
 import blob from "../assets/blob.svg";
 import blob2 from "../assets/blob2.svg";
-import { BsFillMoonStarsFill } from "react-icons/bs";
 import {
   AiFillTwitterCircle,
   AiFillLinkedin,
@@ -24,8 +23,8 @@ export default function About() {
           website developer.
         </div>
         <div className="flex items-center justify-between w-[80%]">
-          <button className="bg-black text-white w-24 h-7 text-xl">
-            Hire me
+          <button className="bg-black text-white px-3 rounded py-1 text-xl">
+            Download CV
           </button>
           <div className="flex text-4xl gap-2">
             <AiFillGithub />
