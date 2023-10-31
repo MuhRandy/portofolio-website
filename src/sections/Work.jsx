@@ -1,26 +1,28 @@
 import Card from "../component/Card";
 import "swiper/css";
 import { register } from "swiper/element/bundle";
+import personalPortofolioWebsite from "../assets/projects/personal-portofolio-website.jpg";
+import randomQuoteMachine from "../assets/projects/random-quote-machine.jpg";
+import reactMarkdownPreview from "../assets/projects/react-markdown-preview.jpg";
 
 register();
 
 export default function Work() {
   const projects = [
     {
-      name: "Project 1",
-      img: "https://via.placeholder.com/500",
+      name: "Personal Portofolio Website",
+      img: personalPortofolioWebsite,
+      link: "portofolio-website/",
     },
     {
-      name: "Project 1",
-      img: "https://via.placeholder.com/500",
+      name: "Random Quote Machine",
+      img: randomQuoteMachine,
+      link: "random-quote-machine/",
     },
     {
-      name: "Project 1",
-      img: "https://via.placeholder.com/500",
-    },
-    {
-      name: "Project 1",
-      img: "https://via.placeholder.com/500",
+      name: "React Markdown Preview",
+      img: reactMarkdownPreview,
+      link: "react-markdown-preview-fcc/",
     },
   ];
   return (
@@ -32,13 +34,12 @@ export default function Work() {
         </h1>
         <swiper-container
           space-between={"30"}
-          slides-per-view={"3.5"}
+          slides-per-view={"1.5"}
           grab-cursor={true}
-          className="w-9"
         >
           {projects.map((project, index) => (
             <swiper-slide key={index}>
-              <Card img={project.img} name={project.name} />
+              <Card img={project.img} name={project.name} link={project.link} />
             </swiper-slide>
           ))}
         </swiper-container>

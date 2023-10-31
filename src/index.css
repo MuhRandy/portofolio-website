@@ -6,7 +6,7 @@
 @tailwind utilities;
 
 /* @layer components {
-  .swiper-container {
-    @apply w-[40px];
+  .swiper-wrapper {
+    @apply h-[40px];
   }
 } */
