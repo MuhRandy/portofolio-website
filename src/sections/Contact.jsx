@@ -1,27 +1,52 @@
-import Input from '../component/Input';
+import Input from "../component/Input";
+import clsx from "clsx";
 
 export default function Contact() {
   return (
-    <section id="Contact" className="mt-10 mx-5">
+    <section
+      id="Contact"
+      className={clsx(
+        "mt-10 mx-5",
+        "sm:mx-[10vw] sm:min-h-[70vw] sm:flex sm:items-center"
+      )}
+    >
       <div className="flex justify-between min-w-full">
-        <h1 className="text-lg leading-4 font-bold text-left flex flex-col font-inter">
+        <h1
+          className={clsx(
+            "text-lg leading-4 font-bold text-left flex flex-col font-inter",
+            [
+              "sm:text-2xl sm:leading-5",
+              "md:text-3xl md:leading-6",
+              "lg:text-5xl lg:leading-10",
+            ]
+          )}
+        >
           <span>Get in touch</span>
-          <span className="">Contact me</span>
+          <span>Contact me</span>
         </h1>
         <form
-          className="flex flex-col gap-1" /* ref={form}  onSubmit={sendEmail}*/
+          className={clsx(
+            "flex flex-col gap-1",
+            "sm:gap-2"
+          )} /* ref={form}  onSubmit={sendEmail}*/
         >
-          <Input name={'user_name'} placeholder={'Name'} />
+          <Input name={"user_name"} placeholder={"Name"} />
           <Input type="email" name="user_email" placeholder="Email" />
           <textarea
             name="message"
-            className="border rounded-md border-black p-1 h-40 w-[50vw] text-sm"
+            className={clsx(
+              "border rounded-md border-black p-1 h-40 w-[50vw] text-sm",
+              "sm:text-lg sm:border-2"
+            )}
             placeholder="Message"
           ></textarea>
           <input
             type="submit"
-            value={'Send'}
-            className="bg-black text-white rounded-md self-center text-sm py-1 px-4"
+            value={"Send"}
+            className={clsx(
+              "bg-black text-white rounded-md self-center text-sm py-1 px-4",
+              "sm:text-lg sm:px-6"
+            )}
           />
           {/* <span>{done && "Thanks for contacting me!"}</span> */}
         </form>
