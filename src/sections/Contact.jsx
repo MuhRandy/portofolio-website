@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Input from "../component/Input";
 import clsx from "clsx";
 
@@ -11,9 +12,12 @@ export default function Contact() {
       ])}
     >
       <div className="flex justify-between min-w-full">
-        <h1
+        <motion.h1
+          initial={{ opacity: 0, bottom: "-20px" }}
+          whileInView={{ opacity: 1, bottom: "0px" }}
+          transition={{ duration: 2, type: "spring" }}
           className={clsx(
-            "text-lg leading-4 font-bold text-left font-inter",
+            "relative text-lg leading-4 font-bold text-left font-inter",
             "flex flex-col",
             [
               "sm:text-2xl sm:leading-5",
@@ -24,7 +28,7 @@ export default function Contact() {
         >
           <span>Get in touch</span>
           <span>Contact me</span>
-        </h1>
+        </motion.h1>
         <form
           className={clsx(
             "flex flex-col gap-1",
@@ -41,11 +45,14 @@ export default function Contact() {
             )}
             placeholder="Message"
           ></textarea>
-          <input
+          <motion.input
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 0.5, type: "spring" }}
             type="submit"
             value={"Send"}
             className={clsx(
-              "bg-black text-white rounded-md self-center text-sm py-1 px-4",
+              "bg-black cursor-pointer text-white rounded-md self-center text-sm py-1 px-4",
               "sm:text-lg sm:px-6"
             )}
           />

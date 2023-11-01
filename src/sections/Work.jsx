@@ -5,6 +5,7 @@ import personalPortofolioWebsite from "../assets/projects/personal-portofolio-we
 import randomQuoteMachine from "../assets/projects/random-quote-machine.jpg";
 import reactMarkdownPreview from "../assets/projects/react-markdown-preview.jpg";
 import clsx from "clsx";
+import { motion } from "framer-motion";
 
 register();
 
@@ -30,9 +31,12 @@ export default function Work() {
   return (
     <section id="Works" className={clsx("mx-5 py-[10vh]", "sm:mx-[10vw]")}>
       <div>
-        <h1
+        <motion.h1
+          initial={{ opacity: 0, bottom: "-20px" }}
+          whileInView={{ opacity: 1, bottom: "0px" }}
+          transition={{ duration: 2, type: "spring" }}
           className={clsx(
-            "text-lg leading-4 font-bold text-left flex flex-col font-inter mb-2",
+            "relative text-lg leading-4 font-bold text-left flex flex-col font-inter mb-2",
             [
               "sm:text-2xl sm:leading-5",
               "md:text-3xl md:leading-6",
@@ -42,7 +46,7 @@ export default function Work() {
         >
           <span>My</span>
           <span>Project</span>
-        </h1>
+        </motion.h1>
         <swiper-container
           space-between={"30"}
           slides-per-view={"1.5"}

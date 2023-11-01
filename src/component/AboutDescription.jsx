@@ -1,9 +1,15 @@
 import clsx from "clsx";
+import { motion } from "framer-motion";
 
 const AboutDescription = () => {
   return (
     <>
-      <div className="flex flex-col leading-3">
+      <motion.div
+        initial={{ opacity: 0, bottom: "-20px" }}
+        whileInView={{ opacity: 1, bottom: "0px" }}
+        transition={{ duration: 2, type: "spring" }}
+        className="flex flex-col leading-3 relative"
+      >
         <span
           className={clsx("text-md font-bold", [
             "sm:text-xl sm:leading-3",
@@ -22,9 +28,12 @@ const AboutDescription = () => {
         >
           Randy
         </span>
-      </div>
-      <div
-        className={clsx("text-sm text-justify", [
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, bottom: "-20px" }}
+        whileInView={{ opacity: 1, bottom: "0px" }}
+        transition={{ duration: 2, type: "spring" }}
+        className={clsx("text-sm text-justify relative", [
           "sm:w-[40vw] sm:text-lg",
           "md:text-xl",
           "lg:text-2xl lg:w-[30vw]",
@@ -32,7 +41,7 @@ const AboutDescription = () => {
       >
         A beginner software developer from Indonesia who focus on frontend
         website developer.
-      </div>
+      </motion.div>
     </>
   );
 };

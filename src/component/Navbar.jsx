@@ -1,5 +1,6 @@
 import { IconCode } from "@tabler/icons";
 import clsx from "clsx";
+import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 
 export default function Navbar() {
@@ -34,16 +35,22 @@ export default function Navbar() {
       <div>
         <ul className={clsx("text-md pr-5", "flex gap-2", "md:text-lg")}>
           {navs.map((nav, index) => (
-            <Link
-              to={nav.link}
-              activeClass="font-bold"
-              spy={true}
-              offset={nav.offset}
-              smooth={true}
-              key={index}
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ duration: 0.5, type: "spring" }}
             >
-              <li className="cursor-pointer">{nav.name}</li>
-            </Link>
+              <Link
+                to={nav.link}
+                activeClass="font-bold"
+                spy={true}
+                offset={nav.offset}
+                smooth={true}
+                key={index}
+              >
+                <li className="cursor-pointer">{nav.name}</li>
+              </Link>
+            </motion.div>
           ))}
         </ul>
       </div>

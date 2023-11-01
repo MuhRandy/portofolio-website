@@ -1,8 +1,13 @@
 import clsx from "clsx";
+import { motion } from "framer-motion";
 
 const AboutProfil = ({ profil, className }) => {
   return (
-    <img
+    <motion.img
+      initial={{ scale: 0.5 }}
+      whileInView={{ scale: 1 }}
+      whileHover={{ scale: 1.1 }}
+      transition={{ duration: 0.5, type: "spring" }}
       src={profil}
       alt="Muhammad Randy Profil Photo's"
       className={clsx(
