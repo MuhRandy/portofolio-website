@@ -5,15 +5,16 @@ export default function Contact() {
   return (
     <section
       id="Contact"
-      className={clsx(
-        "mt-10 mx-5",
-        "sm:mx-[10vw] sm:min-h-[70vw] sm:flex sm:items-center"
-      )}
+      className={clsx("mx-5 py-[10vh] mb-[18vh]", [
+        "sm:mx-[10vw] sm:mb-[10vh]",
+        "lg:py-[15vh]",
+      ])}
     >
       <div className="flex justify-between min-w-full">
         <h1
           className={clsx(
-            "text-lg leading-4 font-bold text-left flex flex-col font-inter",
+            "text-lg leading-4 font-bold text-left font-inter",
+            "flex flex-col",
             [
               "sm:text-2xl sm:leading-5",
               "md:text-3xl md:leading-6",

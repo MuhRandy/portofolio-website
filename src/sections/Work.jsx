@@ -26,11 +26,9 @@ export default function Work() {
       link: "react-markdown-preview-fcc/",
     },
   ];
+
   return (
-    <section
-      id="Works"
-      className={clsx("mx-5", "sm:mx-[10vw] sm:min-h-[70vh] sm:my-auto")}
-    >
+    <section id="Works" className={clsx("mx-5 py-[10vh]", "sm:mx-[10vw]")}>
       <div>
         <h1
           className={clsx(

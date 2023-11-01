@@ -7,14 +7,17 @@ export default function Navbar() {
     {
       name: "Home",
       link: "About",
+      offset: -50,
     },
     {
       name: "Projects",
       link: "Works",
+      offset: -50,
     },
     {
       name: "Contact",
       link: "Contact",
+      offset: -50,
     },
   ];
   return (
@@ -35,6 +38,7 @@ export default function Navbar() {
               to={nav.link}
               activeClass="font-bold"
               spy={true}
+              offset={nav.offset}
               smooth={true}
               key={index}
             >

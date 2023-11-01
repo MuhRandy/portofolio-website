@@ -27,7 +27,7 @@ const AboutDescription = () => {
         className={clsx("text-sm text-justify", [
           "sm:w-[40vw] sm:text-lg",
           "md:text-xl",
-          "lg:text-2xl",
+          "lg:text-2xl lg:w-[30vw]",
         ])}
       >
         A beginner software developer from Indonesia who focus on frontend
