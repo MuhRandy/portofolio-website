@@ -4,14 +4,7 @@ import { motion } from "framer-motion";
 export default function Card({ img, name, link }) {
   return (
     <div>
-      <img
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        transition={{ duration: 0.5, type: "spring" }}
-        src={img}
-        alt={name}
-        className="shadow-black shadow-sm"
-      />
+      <img src={img} alt={name} className="shadow-black shadow-sm" />
       <a href={`https://muhrandy.github.io/${link}`}>
         <motion.h1
           whileHover={{ scale: 1.1 }}
