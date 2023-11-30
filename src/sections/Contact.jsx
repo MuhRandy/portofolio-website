@@ -17,7 +17,8 @@ export default function Contact() {
           whileInView={{ opacity: 1, bottom: "0px" }}
           transition={{ duration: 2, type: "spring" }}
           className={clsx(
-            "relative text-lg leading-4 font-bold text-left font-inter",
+            "relative text-lg leading-4 font-bold text-left font-inter text-white",
+            "mix-blend-difference",
             "flex flex-col",
             [
               "sm:text-2xl sm:leading-5",

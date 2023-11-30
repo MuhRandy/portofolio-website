@@ -20,10 +20,11 @@ const AboutButtonIcon = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.5, type: "spring" }}
-          className={clsx("bg-black text-white rounded p-1 text-xs", [
-            "sm:text-sm sm:px-3",
-            "lg:text-lg",
-          ])}
+          className={clsx(
+            "bg-white text-black rounded p-1 text-xs",
+            "mix-blend-difference",
+            ["sm:text-sm sm:px-3", "lg:text-lg"]
+          )}
         >
           Download CV
         </motion.button>
@@ -39,7 +40,11 @@ const AboutButtonIcon = () => {
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.5, type: "spring" }}
               whileTap={{ scale: 0.9 }}
-              className="cursor-pointer"
+              className={clsx(
+                "cursor-pointer",
+                "text-white",
+                "mix-blend-difference"
+              )}
             >
               {socialMedia.icon}
             </motion.div>

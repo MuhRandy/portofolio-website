@@ -25,7 +25,7 @@ export default function Navbar() {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <nav className="sticky top-0 left-0 right-0 bg-white flex items-center justify-between font-inter z-20">
+    <nav className="sticky top-0 left-0 right-0 bg-black text-white flex items-center justify-between font-inter z-20 py-1">
       <div
         className={clsx("text-sm", "flex items-center gap-1", [
           "sm:text-lg sm:font-bold",
@@ -42,7 +42,7 @@ export default function Navbar() {
             <div
               className={clsx(
                 "flex justify-between",
-                "border-2 border-black rounded-2xl relative p-1 px-2 cursor-pointer",
+                "border-2 border-white rounded-2xl relative p-1 px-2 cursor-pointer",
                 "text-sm"
               )}
               onClick={() => setDarkMode(!darkMode)}
@@ -51,7 +51,7 @@ export default function Navbar() {
               <IconSun size={15} />
               <div
                 className={clsx(
-                  "rounded-full absolute bg-black w-5 h-5 top-[1px]",
+                  "rounded-full absolute bg-white w-5 h-5 top-[1px]",
                   darkMode ? "left-[2px]" : "right-[2px]"
                 )}
               ></div>

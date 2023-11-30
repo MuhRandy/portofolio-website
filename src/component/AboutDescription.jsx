@@ -8,7 +8,7 @@ const AboutDescription = () => {
         initial={{ opacity: 0, bottom: "-20px" }}
         whileInView={{ opacity: 1, bottom: "0px" }}
         transition={{ duration: 2, type: "spring" }}
-        className="flex flex-col leading-3 relative"
+        className="flex flex-col leading-3 relative text-white mix-blend-difference"
       >
         <span
           className={clsx("text-md font-bold", [
@@ -33,11 +33,10 @@ const AboutDescription = () => {
         initial={{ opacity: 0, bottom: "-20px" }}
         whileInView={{ opacity: 1, bottom: "0px" }}
         transition={{ duration: 2, type: "spring" }}
-        className={clsx("text-sm text-justify relative", [
-          "sm:w-[40vw] sm:text-lg",
-          "md:text-xl",
-          "lg:text-2xl lg:w-[30vw]",
-        ])}
+        className={clsx(
+          "text-sm text-justify relative text-white mix-blend-difference",
+          ["sm:w-[40vw] sm:text-lg", "md:text-xl", "lg:text-2xl lg:w-[30vw]"]
+        )}
       >
         A beginner software developer from Indonesia who focus on frontend
         website developer.

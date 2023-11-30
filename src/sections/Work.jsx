@@ -36,7 +36,8 @@ export default function Work() {
           whileInView={{ opacity: 1, bottom: "0px" }}
           transition={{ duration: 2, type: "spring" }}
           className={clsx(
-            "relative text-lg leading-4 font-bold text-left flex flex-col font-inter mb-2",
+            "relative text-lg text-white leading-4 font-bold text-left flex flex-col font-inter mb-2",
+            "mix-blend-difference",
             [
               "sm:text-2xl sm:leading-5",
               "md:text-3xl md:leading-6",
