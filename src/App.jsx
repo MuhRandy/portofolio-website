@@ -2,20 +2,32 @@ import Navbar from "./component/Navbar";
 import About from "./sections/About";
 import Contact from "./sections/Contact";
 import Work from "./sections/Work";
-import polygonScater from "./assets/polygon-scatter-haikei.svg";
 import Footer from "./component/Footer";
+import blob from "./assets/blob.svg";
+import blob2 from "./assets/blob2.svg";
+import clsx from "clsx";
 
 function App() {
   return (
-    <main
-      style={{ "--image-url": `url(${polygonScater})` }}
-      className="bg-white bg-[image:var(--image-url)]"
-    >
+    <main className="bg-slate-50 px-20">
       <Navbar />
-      <About />
-      <Work />
-      <Contact />
-      <Footer />
+      <div className="bg-white">
+        <div className="relative">
+          <About />
+          <div
+            className={clsx(
+              "absolute w-[40vw] right-0 bottom-[-10rem] z-[0] hidden"
+              // ["sm:block", "md:bottom-[-15rem] md:w-[50vw]"]
+            )}
+          >
+            <img src={blob} alt="blob" />
+            <img src={blob2} alt="blob2" />
+          </div>
+        </div>
+        <Work />
+        <Contact />
+        <Footer />
+      </div>
     </main>
   );
 }
