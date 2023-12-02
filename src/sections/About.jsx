@@ -1,37 +1,32 @@
 import profil from "../assets/profil.jpg";
 import clsx from "clsx";
-import AboutDescription from "../component/AboutDescription";
-import AboutButtonIcon from "../component/AboutButtonIcon";
-import AboutProfil from "../component/AboutProfil";
+import AboutDescription from "../component/About/AboutDescription";
+import AboutButtonIcon from "../component/About/AboutButtonIcon";
+import ProfilImage from "../component/About/ProfilImage";
+import Section from "../component/Section";
 
 export default function About() {
   return (
-    <div className="relative min-h-[100dvh]">
-      <section
-        id="About"
-        className={clsx("mx-[10vw] my-10 z-10", [
-          "sm:mx-[10vw] sm:min-h-[50vh]",
-          "lg:py-[15vh] lg:mx-[20vw]",
+    <Section
+      className={clsx(
+        "font-inter w-[80%]",
+        "flex flex-col justify-center items-center gap-5",
+        "sm:flex-row"
+      )}
+      id="about"
+    >
+      <ProfilImage profil={profil} className={"sm:hidden"} />
+      <div
+        className={clsx("flex flex-col justify-between", "", [
+          "sm:h-[20vh]",
+          "md:h-[23vh]",
+          "lg:h-[35vh]",
         ])}
       >
-        <div
-          className={clsx(
-            "font-inter min-w-full",
-            "flex flex-col items-center gap-3",
-            "sm:flex-row sm:justify-between"
-          )}
-        >
-          <AboutProfil profil={profil} className={"sm:hidden"} />
-          <div className="flex flex-col gap-1">
-            <AboutDescription />
-            <AboutButtonIcon />
-          </div>
-          <AboutProfil profil={profil} className={"hidden sm:inline-block"} />
-        </div>
-      </section>
-      {/* <Wave2
-        className={"absolute bottom-0 left-0 right-0 mix-blend-difference"}
-      /> */}
-    </div>
+        <AboutDescription />
+        <AboutButtonIcon />
+      </div>
+      <ProfilImage profil={profil} className={"hidden sm:inline-block"} />
+    </Section>
   );
 }

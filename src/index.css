@@ -5,8 +5,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer components {
-  .swiper-wrapper {
-    @apply h-[40px];
-  }
-} */
+body {
+  @apply bg-zinc-100 sm:px-20;
+}

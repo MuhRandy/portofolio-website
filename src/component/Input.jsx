@@ -6,7 +6,9 @@ const Input = ({ type = "text", name, placeholder }) => {
       type={type}
       name={name}
       className={clsx(
-        "border rounded-md border-black p-1 text-sm w-[50vw]",
+        "p-1 px-2 w-[50vw] rounded-md ",
+        "text-sm",
+        "border border-black",
         "sm:text-lg sm:border-2"
       )}
       placeholder={placeholder}

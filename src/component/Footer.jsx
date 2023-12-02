@@ -6,7 +6,7 @@ export default function Footer() {
     <div className="static bottom-0 left-0 right-0 pt-10">
       <div
         className={clsx(
-          "gap-[5px] flex justify-start items-center pl-1 text-xs",
+          "gap-[5px] flex justify-center items-center pl-1 text-xs",
           "sm:text-base"
         )}
       >

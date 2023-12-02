@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { motion } from "framer-motion";
 
-const AboutProfil = ({ profil, className }) => {
+const ProfilImage = ({ profil, className }) => {
   return (
     <motion.img
       initial={{ scale: 0.5 }}
@@ -11,12 +11,18 @@ const AboutProfil = ({ profil, className }) => {
       src={profil}
       alt="Muhammad Randy Profil Photo's"
       className={clsx(
-        "border-solid border-[#625959] w-[30vw] border-[1px] rounded-2xl z-10 mt-10",
-        ["sm:w-[18vw]", "lg:w-[15vw]"],
+        "border-solid border-[#625959] border",
+        "rounded-2xl",
+        "w-[50%]",
+        [
+          "sm:h-[25vh] sm:w-auto",
+          "md:h-[28vh] md:w-auto",
+          "lg:h-[40vh] lg:w-auto",
+        ],
         className
       )}
     />
   );
 };
 
-export default AboutProfil;
+export default ProfilImage;

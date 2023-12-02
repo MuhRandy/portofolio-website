@@ -1,3 +1,4 @@
+import { IconMenu2 } from "@tabler/icons";
 import { IconSun, IconMoon, IconCode } from "@tabler/icons";
 import clsx from "clsx";
 import { motion } from "framer-motion";
@@ -8,83 +9,117 @@ export default function Navbar() {
   const navs = [
     {
       name: "Home",
-      link: "About",
+      link: "about",
       offset: -50,
     },
     {
       name: "Projects",
-      link: "Works",
+      link: "project",
       offset: -50,
     },
     {
       name: "Contact",
-      link: "Contact",
+      link: "contact",
       offset: -50,
     },
   ];
   const [darkMode, setDarkMode] = useState(false);
+  const [isMenuClicked, setIsMenuClicked] = useState(false);
 
   return (
-    <nav
-      className={clsx(
-        "bg-white/10 font-inter w-screen h-14",
-        "fixed top-0 left-0 right-0 z-20",
-        "flex items-center justify-between",
-        "backdrop-blur-md"
-      )}
-    >
-      <div
-        className={clsx("text-sm", "flex items-center gap-1", [
-          "sm:text-lg sm:font-bold",
-          "md:text-2xl",
-        ])}
+    <>
+      <nav
+        className={clsx(
+          "bg-white/10 font-inter w-screen h-14",
+          "fixed top-0 left-0 right-0 z-10",
+          "flex items-center justify-between",
+          "backdrop-blur-sm shadow-sm"
+        )}
       >
-        <IconCode />
-        <span>Randy Portofolio's</span>
-      </div>
-      <div>
-        <ul className={clsx("text-md pr-5", "flex gap-2", "md:text-lg")}>
-          {/* Toggle darkmode */}
-          <li>
-            <div
-              className={clsx(
-                "flex justify-between",
-                "border-2 border-black rounded-2xl relative p-1 px-2 cursor-pointer",
-                "text-sm"
-              )}
-              onClick={() => setDarkMode(!darkMode)}
-            >
-              <IconMoon size={15} />
-              <IconSun size={15} />
+        <div
+          className={clsx("text-sm", "flex items-center gap-1", [
+            "sm:text-lg sm:font-bold",
+            "md:text-2xl",
+          ])}
+        >
+          <IconCode />
+          <span>Randy Portofolio's</span>
+        </div>
+        <div>
+          <ul className={clsx("text-md pr-5", "flex gap-2", "md:text-lg")}>
+            {/* Toggle darkmode */}
+            <li>
               <div
                 className={clsx(
-                  "rounded-full absolute bg-black w-5 h-5 top-[1px]",
-                  darkMode ? "left-[2px]" : "right-[2px]"
+                  "flex justify-between",
+                  "border-2 border-black rounded-2xl relative p-1 px-2 cursor-pointer",
+                  "text-sm"
                 )}
-              ></div>
-            </div>
-          </li>
-          {/*  */}
-          {navs.map((nav, index) => (
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              transition={{ duration: 0.5, type: "spring" }}
-              key={index}
-            >
+                onClick={() => setDarkMode(!darkMode)}
+              >
+                <IconMoon size={15} />
+                <IconSun size={15} />
+                <div
+                  className={clsx(
+                    "rounded-full absolute bg-black w-5 h-5 top-[1px]",
+                    darkMode ? "left-[2px]" : "right-[2px]"
+                  )}
+                ></div>
+              </div>
+            </li>
+            {/*  */}
+            <li className="sm:hidden">
+              <IconMenu2 onClick={() => setIsMenuClicked(true)} />
+            </li>
+            {navs.map((nav, index) => (
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ duration: 0.5, type: "spring" }}
+                key={index}
+                className="hidden sm:block"
+              >
+                <Link
+                  to={nav.link}
+                  activeClass="font-bold"
+                  spy={true}
+                  offset={nav.offset}
+                  smooth={true}
+                >
+                  <li className="cursor-pointer">{nav.name}</li>
+                </Link>
+              </motion.div>
+            ))}
+          </ul>
+        </div>
+      </nav>
+      <div
+        className={clsx("bg-black/25 w-screen h-screen fixed z-20", {
+          hidden: !isMenuClicked,
+        })}
+        onClick={() => setIsMenuClicked(false)}
+      >
+        <div className="bg-white w-64 h-screen">
+          <div className="text-3xl text-center py-4">Menu</div>
+          <ul className={clsx("text-md", "md:text-lg")}>
+            {navs.map((nav, index) => (
               <Link
+                key={index}
                 to={nav.link}
                 activeClass="font-bold"
                 spy={true}
                 offset={nav.offset}
                 smooth={true}
               >
-                <li className="cursor-pointer">{nav.name}</li>
+                <li className="cursor-pointer text-xl text-center py-4">
+                  {nav.name}
+                </li>
+                <hr />
               </Link>
-            </motion.div>
-          ))}
-        </ul>
+            ))}
+          </ul>
+        </div>
       </div>
-    </nav>
+    </>
   );
 }
