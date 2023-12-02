@@ -8,8 +8,8 @@ import Projects from "./sections/Projects";
 function App() {
   return (
     <>
-      <main className="bg-white">
-        <Navbar />
+      <Navbar />
+      <main className="bg-white dark:bg-slate-700 dark:text-white">
         <About />
         <Divider />
         <Projects />

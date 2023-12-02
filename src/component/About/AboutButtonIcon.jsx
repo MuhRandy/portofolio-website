@@ -20,10 +20,11 @@ const AboutButtonIcon = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.5, type: "spring" }}
-          className={clsx("bg-black text-white rounded p-1 mt-2 text-md", [
-            "sm:text-sm sm:px-3 sm:mt-0",
-            "lg:text-lg",
-          ])}
+          className={clsx(
+            "bg-black text-white rounded p-1 mt-2 text-md",
+            ["sm:text-sm sm:px-3 sm:mt-0", "lg:text-lg"],
+            "dark:bg-white dark:text-black"
+          )}
         >
           Download CV
         </motion.button>

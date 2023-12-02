@@ -23,7 +23,7 @@ export default function Card({ img, name, link }) {
           >
             {name}
           </h1>
-          <p className="text-center text-slate-600">
+          <p className="text-center text-slate-600 dark:text-slate-200">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio?
           </p>
         </motion.div>

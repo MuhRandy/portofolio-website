@@ -9,7 +9,8 @@ const Input = ({ type = "text", name, placeholder }) => {
         "p-1 px-2 w-[50vw] rounded-md ",
         "text-sm",
         "border border-black",
-        "sm:text-lg sm:border-2"
+        "sm:text-lg sm:border-2",
+        "dark:border-white dark:bg-slate-700 dark:text-white"
       )}
       placeholder={placeholder}
     />

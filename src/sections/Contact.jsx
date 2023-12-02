@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Input from "../component/Input";
+import Input from "../component/Contact/Input";
 import clsx from "clsx";
 import Section from "../component/Section";
 
@@ -22,7 +22,8 @@ export default function Contact() {
           name="message"
           className={clsx(
             "border rounded-md border-black p-1 px-2 h-40 w-[50vw] text-sm",
-            "sm:text-lg sm:border-2"
+            "sm:text-lg sm:border-2",
+            "dark:border-white dark:bg-slate-700 dark:text-white"
           )}
           placeholder="Message"
         ></textarea>
@@ -34,7 +35,8 @@ export default function Contact() {
           value={"Send"}
           className={clsx(
             "cursor-pointer bg-black text-white rounded-md self-center text-sm py-1 px-4",
-            "sm:text-lg sm:px-6"
+            "sm:text-lg sm:px-6",
+            "dark:bg-white dark:text-black"
           )}
         />
         {/* <span>{done && "Thanks for contacting me!"}</span> */}

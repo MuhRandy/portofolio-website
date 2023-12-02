@@ -1,9 +1,11 @@
+import { motion } from "framer-motion";
 import { IconMenu2 } from "@tabler/icons";
 import { IconSun, IconMoon, IconCode } from "@tabler/icons";
 import clsx from "clsx";
-import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link } from "react-scroll";
+import DrawerMenu from "./Navbar/DrawerMenu";
+import { useEffect } from "react";
 
 export default function Navbar() {
   const navs = [
@@ -26,6 +28,14 @@ export default function Navbar() {
   const [darkMode, setDarkMode] = useState(false);
   const [isMenuClicked, setIsMenuClicked] = useState(false);
 
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
+
   return (
     <>
       <nav
@@ -33,7 +43,8 @@ export default function Navbar() {
           "bg-white/10 font-inter w-screen h-14",
           "fixed top-0 left-0 right-0 z-10",
           "flex items-center justify-between",
-          "backdrop-blur-sm shadow-sm"
+          "backdrop-blur-sm shadow-sm",
+          ["dark:bg-black/30", "dark:text-white"]
         )}
       >
         <div
@@ -53,7 +64,8 @@ export default function Navbar() {
                 className={clsx(
                   "flex justify-between",
                   "border-2 border-black rounded-2xl relative p-1 px-2 cursor-pointer",
-                  "text-sm"
+                  "text-sm",
+                  ["dark:border-white"]
                 )}
                 onClick={() => setDarkMode(!darkMode)}
               >
@@ -62,7 +74,8 @@ export default function Navbar() {
                 <div
                   className={clsx(
                     "rounded-full absolute bg-black w-5 h-5 top-[1px]",
-                    darkMode ? "left-[2px]" : "right-[2px]"
+                    !darkMode ? "left-[2px]" : "right-[2px]",
+                    ["dark:bg-white"]
                   )}
                 ></div>
               </div>
@@ -93,33 +106,11 @@ export default function Navbar() {
           </ul>
         </div>
       </nav>
-      <div
-        className={clsx("bg-black/25 w-screen h-screen fixed z-20", {
-          hidden: !isMenuClicked,
-        })}
-        onClick={() => setIsMenuClicked(false)}
-      >
-        <div className="bg-white w-64 h-screen">
-          <div className="text-3xl text-center py-4">Menu</div>
-          <ul className={clsx("text-md", "md:text-lg")}>
-            {navs.map((nav, index) => (
-              <Link
-                key={index}
-                to={nav.link}
-                activeClass="font-bold"
-                spy={true}
-                offset={nav.offset}
-                smooth={true}
-              >
-                <li className="cursor-pointer text-xl text-center py-4">
-                  {nav.name}
-                </li>
-                <hr />
-              </Link>
-            ))}
-          </ul>
-        </div>
-      </div>
+      <DrawerMenu
+        isMenuClicked={isMenuClicked}
+        setIsMenuClicked={setIsMenuClicked}
+        navs={navs}
+      />
     </>
   );
 }
