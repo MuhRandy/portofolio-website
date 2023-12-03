@@ -2,17 +2,21 @@ import { motion } from "framer-motion";
 import Input from "../component/Contact/Input";
 import clsx from "clsx";
 import Section from "../component/Section";
+import { cn } from "../component/utils";
 
 export default function Contact() {
   return (
-    <Section className={"flex justify-between"} id="contact">
-      <Section.Title className={clsx("text-left", "flex flex-col")}>
+    <Section
+      className={clsx("flex flex-col gap-4", "sm:flex-row sm:justify-between")}
+      id="contact"
+    >
+      <Section.Title className={cn("text-left", "flex flex-col")}>
         <span>Get in touch</span>
         <span>Contact me</span>
       </Section.Title>
       <form
         className={clsx(
-          "flex flex-col gap-1",
+          "flex flex-col gap-1 max-w-md",
           "sm:gap-2"
         )} /* ref={form}  onSubmit={sendEmail}*/
       >
@@ -21,7 +25,7 @@ export default function Contact() {
         <textarea
           name="message"
           className={clsx(
-            "border rounded-md border-black p-1 px-2 h-40 w-[50vw] text-sm",
+            "border rounded-md border-black p-1 px-2 h-40 text-sm",
             "sm:text-lg sm:border-2",
             "dark:border-white dark:bg-slate-700 dark:text-white"
           )}

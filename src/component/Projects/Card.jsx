@@ -1,33 +1,42 @@
+import { IconBrandReact } from "@tabler/icons";
+import { IconBrandFramer } from "@tabler/icons";
+import { IconBrandTailwind } from "@tabler/icons";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 
-export default function Card({ img, name, link }) {
+export default function Card({ img, name, link, desc }) {
   return (
-    <div className="shadow-sm border rounded-lg overflow-hidden">
-      <div className="mx-5 mt-5">
-        <img src={img} alt={name} className="shadow-black shadow-sm" />
-      </div>
-      <a href={`https://muhrandy.github.io/${link}`}>
-        <motion.div
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          transition={{ duration: 0.5, type: "spring" }}
-          className="py-4"
-        >
+    <a href={`https://muhrandy.github.io/${link}`}>
+      <motion.div
+        initial={{ left: "-100px" }}
+        whileInView={{ left: 0 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.9 }}
+        transition={{ duration: 0.5, type: "spring" }}
+        className="shadow-sm border rounded-lg overflow-hidden relative h-full"
+      >
+        <div className="mx-2 mt-2 rounded-md overflow-hidden">
+          <img src={img} alt={name} className="shadow-black shadow-sm" />
+        </div>
+        <div className="py-4 mb-2 px-2">
           <h1
-            className={clsx("text-center text-md font-medium underline", [
+            className={clsx("text-center text-md font-medium", [
               "sm:text-lg",
               "md:text-xl",
-              "lg:text-2xl",
             ])}
           >
             {name}
           </h1>
-          <p className="text-center text-slate-600 dark:text-slate-200">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio?
+          <p className="text-center text-slate-600 text-sm dark:text-slate-200">
+            {desc}
           </p>
-        </motion.div>
-      </a>
-    </div>
+        </div>
+        <div className="flex absolute bottom-0 right-0">
+          <IconBrandTailwind className="text-blue-500" stroke={1} />
+          <IconBrandReact className="text-blue-800" stroke={1} />
+          <IconBrandFramer stroke={1} />
+        </div>
+      </motion.div>
+    </a>
   );
 }

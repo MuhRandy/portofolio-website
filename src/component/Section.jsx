@@ -24,11 +24,11 @@ const Title = ({ className, children }) => {
       whileInView={{ opacity: 1, bottom: "0px" }}
       transition={{ duration: 2, type: "spring" }}
       className={cn(
-        "text-lg leading-4 font-bold text-center font-inter",
+        "text-4xl leading-8 font-bold text-center font-inter",
         "relative",
         [
-          "sm:text-2xl sm:leading-5",
-          "md:text-3xl md:leading-6",
+          "sm:text-3xl sm:leading-7",
+          "md:text-4xl md:leading-8",
           "lg:text-5xl lg:leading-10",
         ],
         className
