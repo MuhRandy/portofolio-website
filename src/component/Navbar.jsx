@@ -73,9 +73,10 @@ export default function Navbar() {
                 <IconSun size={15} />
                 <div
                   className={clsx(
-                    "rounded-full absolute bg-black w-5 h-5 top-[1px]",
-                    !darkMode ? "left-[2px]" : "right-[2px]",
-                    ["dark:bg-white"]
+                    "rounded-full bg-black w-5 h-5",
+                    "absolute top-[1px]",
+                    "dark:bg-white",
+                    !darkMode ? "left-[2px]" : "right-[2px]"
                   )}
                 ></div>
               </div>

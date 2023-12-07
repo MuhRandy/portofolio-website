@@ -4,19 +4,21 @@ import Contact from "./sections/Contact";
 import Footer from "./component/Footer";
 import Divider from "./component/Divider";
 import Projects from "./sections/Projects";
+import { Routes, Route } from "react-router-dom";
+import AddPorto from "./component/Projects/AddPorto";
+import MainPage from "./component/MainPage";
 
 function App() {
   return (
     <>
       <Navbar />
-      <main className="bg-white dark:bg-slate-700 dark:text-white">
-        <About />
-        <Divider />
-        <Projects />
-        <Divider />
-        <Contact />
-        <Footer />
-      </main>
+      <Routes>
+        <Route path="/portofolio-website" element={<MainPage />} />
+        <Route
+          path="/portofolio-website/add-portfolio"
+          element={<AddPorto />}
+        />
+      </Routes>
     </>
   );
 }

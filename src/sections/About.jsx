@@ -17,7 +17,7 @@ export default function About() {
     >
       <ProfilImage profil={profil} className={"sm:hidden"} />
       <div
-        className={clsx("flex flex-col justify-between", "", [
+        className={clsx("flex flex-col justify-between", [
           "sm:h-[20vh]",
           "md:h-[23vh]",
           "lg:h-[35vh]",

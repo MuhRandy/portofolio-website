@@ -14,7 +14,10 @@ export default function Contact() {
         <span>Get in touch</span>
         <span>Contact me</span>
       </Section.Title>
-      <form
+      <motion.form
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 3, type: "spring" }}
         className={clsx(
           "flex flex-col gap-1 max-w-md",
           "sm:gap-2"
@@ -44,7 +47,7 @@ export default function Contact() {
           )}
         />
         {/* <span>{done && "Thanks for contacting me!"}</span> */}
-      </form>
+      </motion.form>
     </Section>
   );
 }

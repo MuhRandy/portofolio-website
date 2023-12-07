@@ -5,6 +5,7 @@ import personalPortofolioWebsite from "../assets/projects/personal-portofolio-we
 import randomQuoteMachine from "../assets/projects/random-quote-machine.jpg";
 import reactMarkdownPreview from "../assets/projects/react-markdown-preview.jpg";
 import Section from "../component/Section";
+import { Link } from "react-router-dom";
 
 register();
 
@@ -33,6 +34,7 @@ export default function Projects() {
   return (
     <Section id="project">
       <Section.Title className={"mb-5"}>My Project</Section.Title>
+      <Link to={"add-portfolio"}>+ Tambah Portfolio</Link>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {projects.map((project, index) => (
           <Card
