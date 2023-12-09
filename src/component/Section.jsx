@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { cn } from "./utils";
+import { cn } from "../utils/utils";
 import { motion } from "framer-motion";
 
 const Section = ({ children, className, id }) => {

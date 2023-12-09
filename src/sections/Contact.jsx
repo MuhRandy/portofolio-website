@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Input from "../component/Contact/Input";
 import clsx from "clsx";
 import Section from "../component/Section";
-import { cn } from "../component/utils";
+import { cn } from "../utils/utils";
 
 export default function Contact() {
   return (

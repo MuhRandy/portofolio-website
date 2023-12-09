@@ -1,5 +1,4 @@
 {
-  "homepage": "https://muhrandy.github.io/portofolio-website/",
   "name": "portofolio-website",
   "private": true,
   "version": "0.0.0",
@@ -15,14 +14,17 @@
     "@react-icons/all-files": "^4.1.0",
     "@tabler/icons": "^1.103.0",
     "clsx": "^2.0.0",
+    "firebase": "^10.7.1",
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.3",
     "react-icons": "^4.4.0",
     "react-router-dom": "^6.20.1",
     "react-scroll": "^1.9.0",
     "swiper": "^10.3.1",
-    "tailwind-merge": "^2.0.0"
+    "tailwind-merge": "^2.0.0",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.21",
