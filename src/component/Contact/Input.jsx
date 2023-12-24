@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-const Input = ({ type = "text", name, placeholder }) => {
+const Input = ({ type = "text", name, placeholder, onChange }) => {
   return (
     <input
       type={type}
@@ -13,6 +13,7 @@ const Input = ({ type = "text", name, placeholder }) => {
         "dark:border-white dark:bg-slate-700 dark:text-white"
       )}
       placeholder={placeholder}
+      onChange={onChange}
     />
   );
 };

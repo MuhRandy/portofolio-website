@@ -6,8 +6,14 @@ import { useState } from "react";
 import { Link } from "react-scroll";
 import DrawerMenu from "./Navbar/DrawerMenu";
 import { useEffect } from "react";
+import { signOut } from "firebase/auth";
+import { auth } from "../utils/firebase-config";
+import { useContext } from "react";
+import { AppContext } from "../App";
 
 export default function Navbar() {
+  const { isAuth, navigate, setIsAuth } = useContext(AppContext);
+
   const navs = [
     {
       name: "Home",
@@ -35,6 +41,14 @@ export default function Navbar() {
       document.documentElement.classList.remove("dark");
     }
   }, [darkMode]);
+
+  const signUserOut = () => {
+    signOut(auth).then(() => {
+      localStorage.clear();
+      setIsAuth(false);
+      navigate("/login");
+    });
+  };
 
   return (
     <>
@@ -104,6 +118,13 @@ export default function Navbar() {
                 </Link>
               </motion.div>
             ))}
+            {isAuth && (
+              <li>
+                <button onClick={signUserOut} className="hidden sm:block">
+                  Logout
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       </nav>
@@ -111,6 +132,7 @@ export default function Navbar() {
         isMenuClicked={isMenuClicked}
         setIsMenuClicked={setIsMenuClicked}
         navs={navs}
+        signUserOut={signUserOut}
       />
     </>
   );

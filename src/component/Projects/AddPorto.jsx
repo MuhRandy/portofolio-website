@@ -11,14 +11,17 @@ import {
   uploadBytes,
   ref as storageRef,
 } from "firebase/storage";
-import { useAppContext } from "../../App";
+import { AppContext } from "../../App";
+import { useContext } from "react";
+import { v4 as uuidv4 } from "uuid";
+import Button from "../Button";
 
 const AddPorto = () => {
-  const { navigate, setIsLoading, isLoading, setRenderCount, renderCount } =
-    useAppContext;
+  const useAppContext = useContext(AppContext);
 
   const [projectName, setProjectName] = useState();
   const [projectDescription, setProjectDescription] = useState();
+  const [projectLink, setProjectLink] = useState();
   const [file, setFile] = useState();
 
   // add doc on firebase database on posts collection then navigate to home
@@ -27,15 +30,13 @@ const AddPorto = () => {
     await addDoc(postCollectionRef, {
       projectName,
       projectDescription,
+      projectLink,
       imgUrl: imgURL,
       imgPath,
       timestamp: serverTimestamp(),
-      author: {
-        id: auth.currentUser?.uid,
-      },
     }).catch((err) => console.log(err));
-    setRenderCount(renderCount + 1);
-    navigate("/");
+    useAppContext.setRenderCount(useAppContext.renderCount + 1);
+    useAppContext.navigate("/");
   };
 
   // upload image in storage and then save downloadUrl to referred doc on firestore
@@ -45,7 +46,7 @@ const AddPorto = () => {
       return;
     }
 
-    setIsLoading(true);
+    useAppContext.setIsLoading(true);
 
     const imgPath = `project-image/${uuidv4()}`;
     const imageRef = storageRef(storage, imgPath);
@@ -82,7 +83,7 @@ const AddPorto = () => {
         <div className="py-4 mb-2 px-2 flex flex-col w-full">
           <input
             type="text"
-            placeholder="Nama Portfolio"
+            placeholder="Project Name"
             className={clsx("text-center text-md font-medium", [
               "sm:text-lg",
               "md:text-xl",
@@ -91,9 +92,18 @@ const AddPorto = () => {
           />
           <textarea
             name="porto-desc"
-            placeholder="Deskripsi Portfolio"
+            placeholder="Project Description"
             className="text-center text-slate-600 text-sm dark:text-slate-200 w-full h-[100px]"
             onChange={(e) => setProjectDescription(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Link to Project"
+            className={clsx("text-center text-md font-medium", [
+              "sm:text-lg",
+              "md:text-xl",
+            ])}
+            onChange={(e) => setProjectLink(e.target.value)}
           />
         </div>
         <div className="flex absolute bottom-0 right-0">
@@ -103,18 +113,10 @@ const AddPorto = () => {
         </div>
       </div>
       <div>
-        <button
-          className="border bg-black text-white rounded-md py-1 w-[70px]"
-          onClick={uploadProject}
-        >
-          Submit
-        </button>
-        <button
-          className="border bg-black text-white rounded-md py-1 w-[70px]"
-          onClick={() => navigate("/")}
-        >
-          Back
-        </button>
+        <Button onClick={uploadProject}>Submit</Button>
+        <a href="/">
+          <Button>Back</Button>
+        </a>
       </div>
     </div>
   );

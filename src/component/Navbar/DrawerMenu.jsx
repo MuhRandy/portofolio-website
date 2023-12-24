@@ -2,8 +2,11 @@ import clsx from "clsx";
 import { Link } from "react-scroll";
 import { IconX } from "@tabler/icons";
 import { motion } from "framer-motion";
+import { useContext } from "react";
+import { AppContext } from "../../App";
 
-const DrawerMenu = ({ isMenuClicked, setIsMenuClicked, navs }) => {
+const DrawerMenu = ({ isMenuClicked, setIsMenuClicked, navs, signUserOut }) => {
+  const { isAuth } = useContext(AppContext);
   return (
     <div
       className={clsx("bg-black/25 w-screen h-screen fixed z-20", {
@@ -38,6 +41,19 @@ const DrawerMenu = ({ isMenuClicked, setIsMenuClicked, navs }) => {
               <hr />
             </Link>
           ))}
+          {isAuth && (
+            <>
+              <li className="flex justify-center">
+                <button
+                  onClick={signUserOut}
+                  className="cursor-pointer text-xl text-center py-4"
+                >
+                  Logout
+                </button>
+              </li>
+              <hr />
+            </>
+          )}
         </ul>
       </motion.div>
     </div>
