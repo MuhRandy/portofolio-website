@@ -1,6 +1,14 @@
 import clsx from "clsx";
+import { ChangeEventHandler } from "react";
 
-const Input = ({ type = "text", name, placeholder, onChange }) => {
+type InputProps = {
+  type?: string;
+  name?: string;
+  placeholder: string;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
+};
+
+const Input = ({ type = "text", name, placeholder, onChange }: InputProps) => {
   return (
     <input
       type={type}

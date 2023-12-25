@@ -1,10 +1,17 @@
-import { IconBrandReact } from "@tabler/icons";
-import { IconBrandFramer } from "@tabler/icons";
-import { IconBrandTailwind } from "@tabler/icons";
+import { IconBrandReact } from "@tabler/icons-react";
+import { IconBrandFramer } from "@tabler/icons-react";
+import { IconBrandTailwind } from "@tabler/icons-react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 
-export default function Card({ img, name, link, desc }) {
+type CardProps = {
+  img: string;
+  name: string;
+  link: string;
+  desc: string;
+};
+
+export default function Card({ img, name, link, desc }: CardProps) {
   return (
     <a href={`https://muhrandy.github.io/${link}`}>
       <motion.div

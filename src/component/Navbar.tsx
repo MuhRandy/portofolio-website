@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { IconMenu2 } from "@tabler/icons";
-import { IconSun, IconMoon, IconCode } from "@tabler/icons";
+import { IconMenu2 } from "@tabler/icons-react";
+import { IconSun, IconMoon, IconCode } from "@tabler/icons-react";
 import clsx from "clsx";
 import { useState } from "react";
 import { Link } from "react-scroll";

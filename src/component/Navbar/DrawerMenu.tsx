@@ -1,11 +1,23 @@
 import clsx from "clsx";
 import { Link } from "react-scroll";
-import { IconX } from "@tabler/icons";
+import { IconX } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { AppContext } from "../../App";
 
-const DrawerMenu = ({ isMenuClicked, setIsMenuClicked, navs, signUserOut }) => {
+type DrawerMenuProps = {
+  isMenuClicked: boolean;
+  setIsMenuClicked: (isMenuClicked: boolean) => void;
+  navs: { name: string; link: string; offset: number }[];
+  signUserOut: () => void;
+};
+
+const DrawerMenu = ({
+  isMenuClicked,
+  setIsMenuClicked,
+  navs,
+  signUserOut,
+}: DrawerMenuProps) => {
   const { isAuth } = useContext(AppContext);
   return (
     <div

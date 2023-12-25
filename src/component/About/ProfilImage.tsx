@@ -1,7 +1,12 @@
 import clsx from "clsx";
 import { motion } from "framer-motion";
 
-const ProfilImage = ({ profil, className }) => {
+type ProfilImageProps = {
+  profil: string;
+  className: string;
+};
+
+const ProfilImage = ({ profil, className }: ProfilImageProps) => {
   return (
     <motion.img
       initial={{ opacity: 0 }}

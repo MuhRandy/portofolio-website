@@ -1,6 +1,6 @@
-import { IconBrandFramer } from "@tabler/icons";
-import { IconBrandReact } from "@tabler/icons";
-import { IconBrandTailwind } from "@tabler/icons";
+import { IconBrandFramer } from "@tabler/icons-react";
+import { IconBrandReact } from "@tabler/icons-react";
+import { IconBrandTailwind } from "@tabler/icons-react";
 import clsx from "clsx";
 import DragNDrop from "../DragNDrop";
 import { useState } from "react";
@@ -15,17 +15,19 @@ import { AppContext } from "../../App";
 import { useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Button from "../Button";
+import { useEffect } from "react";
 
 const AddPorto = () => {
-  const useAppContext = useContext(AppContext);
+  const { isAuth, navigate, renderCount, setRenderCount, setIsLoading } =
+    useContext(AppContext);
 
-  const [projectName, setProjectName] = useState();
-  const [projectDescription, setProjectDescription] = useState();
-  const [projectLink, setProjectLink] = useState();
-  const [file, setFile] = useState();
+  const [projectName, setProjectName] = useState<string>();
+  const [projectDescription, setProjectDescription] = useState<string>();
+  const [projectLink, setProjectLink] = useState<string>();
+  const [file, setFile] = useState<File>();
 
   // add doc on firebase database on posts collection then navigate to home
-  const addProject = async (imgURL, imgPath) => {
+  const addProject = async (imgURL: string, imgPath: string) => {
     const postCollectionRef = collection(db, "projects");
     await addDoc(postCollectionRef, {
       projectName,
@@ -35,8 +37,8 @@ const AddPorto = () => {
       imgPath,
       timestamp: serverTimestamp(),
     }).catch((err) => console.log(err));
-    useAppContext.setRenderCount(useAppContext.renderCount + 1);
-    useAppContext.navigate("/");
+    setRenderCount(renderCount + 1);
+    navigate("/");
   };
 
   // upload image in storage and then save downloadUrl to referred doc on firestore
@@ -46,12 +48,12 @@ const AddPorto = () => {
       return;
     }
 
-    useAppContext.setIsLoading(true);
+    setIsLoading(true);
 
     const imgPath = `project-image/${uuidv4()}`;
     const imageRef = storageRef(storage, imgPath);
 
-    uploadBytes(imageRef, file)
+    uploadBytes(imageRef, file!)
       .then((snapshot) => {
         getDownloadURL(snapshot.ref)
           .then((url) => {
@@ -66,6 +68,12 @@ const AddPorto = () => {
       });
   };
 
+  useEffect(() => {
+    if (!isAuth) {
+      navigate("/");
+    }
+  }, []);
+
   return (
     <div
       className={clsx(
@@ -79,7 +87,7 @@ const AddPorto = () => {
           "flex flex-col items-center"
         )}
       >
-        <DragNDrop file={file} setFile={setFile} />
+        <DragNDrop file={file!} setFile={setFile} />
         <div className="py-4 mb-2 px-2 flex flex-col w-full">
           <input
             type="text"

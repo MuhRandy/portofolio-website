@@ -2,7 +2,19 @@ import clsx from "clsx";
 import Dropzone from "react-dropzone";
 import { cn } from "../utils/utils";
 
-const DragNDrop = ({ file, imgUrl = "", setFile, className }) => {
+type DragNDropProps = {
+  file: File;
+  imgUrl?: string;
+  setFile: (file: File) => void;
+  className?: string;
+};
+
+const DragNDrop = ({
+  file,
+  imgUrl = "",
+  setFile,
+  className,
+}: DragNDropProps) => {
   return (
     <Dropzone onDrop={(acceptedFiles) => setFile(acceptedFiles?.[0])}>
       {({ getRootProps, getInputProps, isDragActive }) => (

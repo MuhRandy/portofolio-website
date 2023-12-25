@@ -8,14 +8,14 @@ import { useEffect } from "react";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { useState } from "react";
 import { db } from "../utils/firebase-config";
-import { IconLoader3 } from "@tabler/icons";
+import { IconLoader3 } from "@tabler/icons-react";
 
 register();
 
 export default function Projects() {
   const { isAuth, isLoading, setIsLoading, renderCount } =
     useContext(AppContext);
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState<any[]>([]);
 
   // get projects data from firestore
   // --------
@@ -45,7 +45,7 @@ export default function Projects() {
       {isAuth && <a href={"/add-portfolio"}>+ Tambah Portfolio</a>}
       {!isLoading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <Card
               key={project.id}
               name={project.projectName}

@@ -1,8 +1,17 @@
 import clsx from "clsx";
 import { cn } from "../utils/utils";
 import { motion } from "framer-motion";
+import { ReactNode } from "react";
 
-const Section = ({ children, className, id }) => {
+type SectionProps = {
+  children?: ReactNode;
+  className?: string;
+  id: string;
+};
+
+type TitleProps = Omit<SectionProps, "id">;
+
+const Section = ({ children, className, id }: SectionProps) => {
   return (
     <section
       className={clsx(
@@ -17,7 +26,7 @@ const Section = ({ children, className, id }) => {
   );
 };
 
-const Title = ({ className, children }) => {
+const Title = ({ className, children }: TitleProps) => {
   return (
     <motion.h1
       initial={{ opacity: 0, bottom: "-20px" }}
