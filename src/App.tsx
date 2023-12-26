@@ -31,7 +31,9 @@ function App() {
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [renderCount, setRenderCount] = useState<number>(0);
-  const [isAuth, setIsAuth] = useState(Boolean(localStorage.getItem("isAuth")));
+  const [isAuth, setIsAuth] = useState<boolean>(
+    Boolean(localStorage.getItem("isAuth"))
+  );
 
   return (
     <AppContext.Provider

@@ -11,7 +11,7 @@ type CardProps = {
   desc: string;
 };
 
-export default function Card({ img, name, link, desc }: CardProps) {
+const Card = ({ img, name, link, desc }: CardProps) => {
   return (
     <a href={`https://muhrandy.github.io/${link}`}>
       <motion.div
@@ -46,4 +46,6 @@ export default function Card({ img, name, link, desc }: CardProps) {
       </motion.div>
     </a>
   );
-}
+};
+
+export default Card;

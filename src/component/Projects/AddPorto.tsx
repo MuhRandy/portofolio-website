@@ -1,21 +1,21 @@
-import { IconBrandFramer } from "@tabler/icons-react";
-import { IconBrandReact } from "@tabler/icons-react";
-import { IconBrandTailwind } from "@tabler/icons-react";
-import clsx from "clsx";
-import DragNDrop from "../DragNDrop";
-import { useState } from "react";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import {
+  IconBrandFramer,
+  IconBrandReact,
+  IconBrandTailwind,
+} from "@tabler/icons-react";
+import { useState, useContext, useEffect } from "react";
 import { db, storage } from "../../utils/firebase-config";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import {
   getDownloadURL,
   uploadBytes,
   ref as storageRef,
 } from "firebase/storage";
 import { AppContext } from "../../App";
-import { useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
+import clsx from "clsx";
+import DragNDrop from "../DragNDrop";
 import Button from "../Button";
-import { useEffect } from "react";
 
 const AddPorto = () => {
   const { isAuth, navigate, renderCount, setRenderCount, setIsLoading } =
