@@ -42,16 +42,18 @@ export default function Projects() {
   return (
     <Section id="project">
       <Section.Title className={"mb-5"}>My Project</Section.Title>
-      {isAuth && <a href={"/add-portfolio"}>+ Tambah Portfolio</a>}
+      {isAuth && <a href={"/add-project"}>+ Tambah Portfolio</a>}
       {!isLoading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {projects.map((project) => (
             <Card
               key={project.id}
+              projectID={project.id}
               name={project.projectName}
               img={project.imgUrl}
               link={project.projectLink}
               desc={project.projectDescription}
+              projectImgPath={project.imgPath}
             />
           ))}
         </div>

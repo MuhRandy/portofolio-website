@@ -10,7 +10,7 @@ a simple portofolio with vite + react and tailwind
 
 - [How to Deploy to Github Pages](https://medium.com/@badreddine.boudaoud21/create-a-react-app-with-vite-and-deploy-it-on-github-48b82e19f821) -->
 
-This is a React project bootstrapped with [Vite](https://vitejs.dev/guide/) and Firebase as a Backend.
+This is a React project bootstrapped with [Vite](https://vitejs.dev/guide/) and [Firebase](https://firebase.google.com/) as a Backend.
 
 # Getting Started
 

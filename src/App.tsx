@@ -5,6 +5,8 @@ import { createContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Login from "./component/Login";
+import { DocumentData, doc, getDoc } from "firebase/firestore";
+import { db } from "./utils/firebase-config";
 
 type GlobalContent = {
   navigate: NavigateFunction;
@@ -14,6 +16,10 @@ type GlobalContent = {
   setRenderCount: (renderCount: number) => void;
   isAuth: boolean;
   setIsAuth: (isAuth: boolean) => void;
+  getSingleData: (
+    setState: (data: DocumentData) => void,
+    projectID: string
+  ) => Promise<void>;
 };
 
 export const AppContext = createContext<GlobalContent>({
@@ -24,6 +30,7 @@ export const AppContext = createContext<GlobalContent>({
   setRenderCount: () => {},
   isAuth: false,
   setIsAuth: () => {},
+  getSingleData: async () => {},
 });
 
 function App() {
@@ -35,6 +42,25 @@ function App() {
     Boolean(localStorage.getItem("isAuth"))
   );
 
+  // get post from firestore based on projectID set state according to setState
+  const getSingleData = async (
+    setState: (data: DocumentData) => void,
+    projectID: string
+  ) => {
+    setIsLoading(true);
+    const docRef = doc(db, "projects", projectID);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      setState(docSnap.data());
+      setIsLoading(false);
+    } else {
+      // docSnap.data() will be undefined in this case
+      console.log("No such document!");
+      setIsLoading(false);
+    }
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -45,12 +71,14 @@ function App() {
         setRenderCount,
         isAuth,
         setIsAuth,
+        getSingleData,
       }}
     >
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/add-portfolio" element={<AddPorto />} />
+        <Route path="/add-project" element={<AddPorto />} />
+        <Route path="/edit-project" element={<AddPorto forEdit={true} />} />
       </Routes>
     </AppContext.Provider>
   );
